@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>upfile</title>
+</head>
+<body>
+     <form method="post" action="/savefile/" enctype="multipart/form-data">
+         {% csrf_token %}
+         <label for="class_name">课程名：</label>
+         <input type="text" name="class_name" id="class_name"/><br>
+         <hr>
+
+         <label>资源类型</label><br>
+         <input type="radio" name="resource_type" value="video"/>视频<br>
+         <input type="radio" name="resource_type" value="voice"/>音频<br>
+         <input type="radio" name="resource_type" value="image"/>图片<br>
+         <input type="radio" name="resource_type" value="document"/>文档<br>
+         <hr>
+         <input type="file" name="file"/>
+         <input type="submit" value="上传"/>
+    </form>
+
+     <hr>
+     <a href="{% url 'teaching_system:download' %}">下载</a>
+</body>
+</html>
